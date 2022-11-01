@@ -1,0 +1,46 @@
+body {
+	padding: 50px;
+}
+.alinhamento_Principal {
+	height: 100%;
+	width: 95%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#tabuleiro {
+	display: grid;
+  	grid-template-columns: auto auto auto auto;
+	gap: 20px;
+	width: 1px;
+}
+
+.quadrado {
+	height: 100px;
+	width: 100px;
+	background-color: black;
+	color: white;
+	border-radius: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border: solid 2px;
+	border-color: black;
+}
+
+.quadrado_ {
+	font-size: 25px;
+	font-weight: 1000;
+	align-content: center;
+}
+
+.impedirSelecao{
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
