@@ -11,15 +11,13 @@ body {
 
 #tabuleiro {
 	display: grid;
-  	grid-template-columns: auto auto auto auto;
 	gap: 20px;
 	width: 1px;
 }
 
-.quadrado {
+.btn {
 	height: 100px;
 	width: 100px;
-	background-color: black;
 	color: white;
 	border-radius: 20%;
 	display: flex;
@@ -30,7 +28,7 @@ body {
 	border-color: black;
 }
 
-.quadrado_ {
+.btn_ {
 	font-size: 25px;
 	font-weight: 1000;
 	align-content: center;
