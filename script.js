@@ -36,7 +36,7 @@ btnGen.addEventListener('click', function() {
 
 	tabuleiro.style.gridTemplateColumns = cols;
 
-	puzzleGenerator(colunas);
+	puzzleGenerator(parseInt(colunas));
 }, false)
 
 function checkBtns(btn, colunas) {
