@@ -22,12 +22,14 @@ function puzzleGenerator(colunas) {
 	}
 }
 
-const btnGen = document.getElementById('btnGenerator')
+const btnGen = document.getElementById('btnGenerator');
+const columns = document.getElementById('columns');
 
 btnGen.addEventListener('click', function() {
 
 	let cols = 'auto';
-	let colunas = 3;
+	let colunas = columns.value;
+	
 	for (i = 1; i < colunas; i++) {
 		cols += ' auto';
 	}
