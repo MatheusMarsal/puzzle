@@ -9,11 +9,18 @@
 </head>
 
 <body>
-	<div id="tabuleiro">
-		<input type="text" id="columns" maxlength="1" value="3">
+	<div class="menu">
+		<img src="ico/settings.png" alt="settings" class="icon" id="settings">
+		<img src="ico/rl.png" alt="reload" class="icon" id="reload">
+	</div>
+
+	<div class="tabuleiro" id="gerador">
+		<input type="text" id="columns" value="3" maxlength="1">
 		<button id="btnGenerator">Gerar Puzzle</button>
 	</div>
-	
+
+	<div class="tabuleiro" id="tabuleiro"></div>
+
 	<script src="script.js"></script>
 	<script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script>
 
