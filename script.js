@@ -1,7 +1,8 @@
 const tabuleiro = document.getElementById('tabuleiro');
+let counterClicks = 0;
+let counterReset = 0;
 
 function puzzleGenerator(colunas) {
-
 	let buildIn = '<div class="btn impedirSelecao" id="' + 1 + '"><div class="btn_">' + 1 + '</div></div>';
 
 	for (let i = 2; i <= (colunas * colunas); i++) {
@@ -17,7 +18,10 @@ function puzzleGenerator(colunas) {
 		btn.style.color = 'white';
 
 		btn.addEventListener('click', function() {
+			counterClicks += 1;
+			cntdrClick(counterClicks);
 			checkBtns(this, colunas);
+
 		}, false)
 	}
 }
@@ -25,10 +29,10 @@ function puzzleGenerator(colunas) {
 const gerador = document.getElementById('gerador')
 const btnGen = document.getElementById('btnGenerator');
 const columns = document.getElementById('columns');
+const menu = document.getElementsByClassName('menu')[0];
 
 btnGen.addEventListener('click', function() {
 	gerador.style.top = '-70px';
-	console.log(gerador.style)
 
 	let cols = 'auto';
 	let colunas = columns.value;
@@ -40,6 +44,7 @@ btnGen.addEventListener('click', function() {
 	tabuleiro.style.gridTemplateColumns = cols;
 
 	puzzleGenerator(parseInt(colunas));
+
 }, false)
 
 function checkBtns(btn, colunas) {
@@ -90,21 +95,45 @@ function trocarCor(btn) {
 const btnReload = document.getElementById('reload');
 
 btnReload.addEventListener('click', function() {
-	const btns = document.getElementsByClassName('btn');
+	if (counterClicks > 0) {
+		const btns = document.getElementsByClassName('btn');
 
-	console.log(btns.length)
+		for (let btn of btns) {
+			btn.style.backgroundColor = 'black';
+			btn.style.color = 'white';
+		}
 
-	for (let btn of btns) {
-		btn.style.backgroundColor = 'black';
-		btn.style.color = 'white';
+		counterReset += 1;
+		cntdrReset(counterReset);
+
+		counterClicks = 0;
+		cntdrClick(0);
+
 	}
-
 }, false)
 
 const btnSettings = document.getElementById('settings');
 
 btnSettings.addEventListener('click', function() {
+	const contadorClicks = document.getElementById('contadorClicks');
+	const contadorResets = document.getElementById('contadorResets');
+
+	counterClicks = 0;
+	counterReset = 0;
+
 	gerador.style.top = '5px';
 	tabuleiro.innerHTML = '';
+	contadorClicks.innerHTML = '';
+	contadorResets.innerHTML = '';
 
 }, false)
+
+function cntdrClick(counterClicks) {
+	const contadorClicks = document.getElementById('contadorClicks');
+	contadorClicks.innerHTML = counterClicks + ' clicks'
+}
+
+function cntdrReset(counterReset) {
+	const contadorResets = document.getElementById('contadorResets');
+	contadorResets.innerHTML = counterReset + ' resets'
+}
