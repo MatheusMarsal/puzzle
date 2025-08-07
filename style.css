@@ -71,3 +71,42 @@
    -ms-user-select: none;
    user-select: none;
 }
+
+#settings {
+	transition: transform 0.15s;
+
+}
+
+#settings:hover {
+	animation: vibrar 0.3s linear;
+}
+
+@keyframes vibrar {
+	0% { transform: rotate(0deg); }
+	10% { transform: rotate(15deg); }
+	20% { transform: rotate(-15deg); }
+	30% { transform: rotate(15deg); }
+	40% { transform: rotate(-15deg); }
+	50% { transform: rotate(15deg); }
+	60% { transform: rotate(-15deg); }
+	70% { transform: rotate(15deg); }
+	100% { transform: rotate(0deg); }
+}
+
+#settings.flip {
+	transition: transform 0.3s;
+	transform: rotateY(180deg);
+}
+
+#reload {
+	transition: transform 0.15s;
+}
+
+#reload:hover {
+	transform: rotate(45deg);
+}
+
+#reload.spin {
+	transition: transform 1s;
+	transform: rotate(360deg);
+}
